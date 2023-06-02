@@ -1,16 +1,16 @@
 import random
 
-class Dice:
 
+class Dice:
     @classmethod
     def roll(self, size, count=1):
         rolls = [random.randint(1, size) for _ in range(count)]
         return sum(rolls), rolls
-    
+
     @classmethod
     def show_single(self, roll):
         return f"{roll[0]} {roll[1]}"
-    
+
     @classmethod
     def roll_stats(self):
         rolls = [self.roll(6, 4) for _ in range(6)]
@@ -19,4 +19,4 @@ class Dice:
 
     @classmethod
     def show_rolls(self, rolls):
-        return "\n".join([f'{roll[0]:<{7 - len(str(roll[0]))}} {roll[1]}' for roll in rolls])
+        return "\n".join([f"{roll[0]:<{7 - len(str(roll[0]))}} {roll[1]}" for roll in rolls])

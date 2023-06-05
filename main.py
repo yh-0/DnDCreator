@@ -2,6 +2,7 @@ import tkinter as tk
 from dice import Dice
 from widget_styles import *
 
+
 def main():
     window = tk.Tk()
     window.title("Empty Window")
@@ -10,9 +11,9 @@ def main():
     window.configure(bg="#202020")
 
     # TODO: create function that wraps button in frame. Alternatively create custom button.
-    f1 = tk.Frame(window, bg='white', padx=2, pady=2)
-    f2 = tk.Frame(window, bg='white', padx=2, pady=2)
-    f3 = tk.Frame(window, bg='white', padx=2, pady=2)
+    f1 = tk.Frame(window, bg="white", padx=2, pady=2)
+    f2 = tk.Frame(window, bg="white", padx=2, pady=2)
+    f3 = tk.Frame(window, bg="white", padx=2, pady=2)
     f1.pack()
     f2.pack()
     f3.pack()
@@ -36,5 +37,6 @@ def main():
     msg2.pack()
 
     window.mainloop()
+
 
 main()

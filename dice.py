@@ -1,22 +1,23 @@
 import random
+from typing import Tuple, List
+
 
 class Dice:
-
-    @classmethod
-    def roll(self, size, count=1):
+    @staticmethod
+    def roll(size: int, count: int = 1):
         rolls = [random.randint(1, size) for _ in range(count)]
         return sum(rolls), rolls
-    
-    @classmethod
-    def show_single(self, roll):
+
+    @staticmethod
+    def show_single(roll: Tuple[int, List[int]]):
         return f"{roll[0]} {roll[1]}"
-    
+
     @classmethod
-    def roll_stats(self):
-        rolls = [self.roll(6, 4) for _ in range(6)]
+    def roll_stats(cls):
+        rolls = [cls.roll(6, 4) for _ in range(6)]
         lowest_removed = [sorted(roll[1])[1:] for roll in rolls]
         return [(sum(roll), roll) for roll in lowest_removed]
 
-    @classmethod
-    def show_rolls(self, rolls):
-        return "\n".join([f'{roll[0]:<{7 - len(str(roll[0]))}} {roll[1]}' for roll in rolls])
+    @staticmethod
+    def show_rolls(rolls: List[Tuple[int, List[int]]]):
+        return "\n".join([f"{roll[0]:<{7 - len(str(roll[0]))}} {roll[1]}" for roll in rolls])

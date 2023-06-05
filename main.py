@@ -1,5 +1,6 @@
 import tkinter as tk
-from dice import Dice
+from Classes.dice import Dice
+from Classes.character import Character
 from widget_styles import *
 
 
@@ -13,28 +14,19 @@ def main():
     # TODO: create function that wraps button in frame. Alternatively create custom button.
     f1 = tk.Frame(window, bg="white", padx=2, pady=2)
     f2 = tk.Frame(window, bg="white", padx=2, pady=2)
-    f3 = tk.Frame(window, bg="white", padx=2, pady=2)
     f1.pack()
     f2.pack()
-    f3.pack()
 
-    roll = Dice.roll(6)
-    ss = Dice.show_single(roll)
-
-    stats = Dice.roll_stats()
-    sr = Dice.show_rolls(stats)
+    character = Character()
 
     def show_text():
-        msg1.config(text=f"{ss}")
-        msg2.config(text=f"{sr}")
+        msg1.config(text=f"{character}")
 
     button = tk.Button(f1, text="Press Me", command=show_text, **button_style)
     button.pack()
 
-    msg1 = tk.Message(f2, text="", width=200, **message_style)
-    msg2 = tk.Message(f3, text="", width=200, **message_style)
+    msg1 = tk.Message(f2, text="", width=300, **message_style)
     msg1.pack()
-    msg2.pack()
 
     window.mainloop()
 
